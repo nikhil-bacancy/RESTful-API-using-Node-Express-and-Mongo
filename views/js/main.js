@@ -11,7 +11,6 @@ $(document).ready(function() {
 			  url: "http://localhost:8080/books/list",
 			  data: {bookprice : parseInt($("#txtBookPrice").val())},
 			  success: function(data, status){
-				  // alert("Data: " + data + "\nStatus: " + status);
 				  const output = document.getElementById('result');
 
 				  output.innerHTML = data.map(product => {
@@ -36,21 +35,17 @@ $(document).ready(function() {
 				type: "POST",
 				dataType: "json",
 				headers: {
-        	'Content-Type': 'application/json',
+        	'Content-Type': 'application/x-www-form-urlencoded',
     		},
-			  url: "http://localhost:8080/books/list",
-			  data: {price : parseInt($("#txtBookPrice").val())},
+			  url: "http://localhost:8080/books/book",
+			  data: {
+			  				name : $("#txtBookName").val(),
+			  				price : parseInt($("#txtBookPrice").val()),
+			  				qty : parseInt($("#txtBookQty").val()),
+			  				isavailable : ($("#isAvailable-yes").val()) ?  true : false ;
+			  			},
 			  success: function(data, status){
-				  // alert("Data: " + data + "\nStatus: " + status);
-				  const output = document.getElementById('result');
-
-				  output.innerHTML = data.map(product => {
-				    return `<li data-id="${ product._id }">
-							      <span>${ product.name }</span>
-							      <span>${ product.price }</span>
-					  			  </li>`;
-					}).join('');
-
+				  alert("Data: " + data + "\nStatus: " + status);
   			},
   			error: function () {
 	     	   	alert("error");

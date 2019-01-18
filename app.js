@@ -32,9 +32,9 @@ app.use(bodyParse.json());
 
 app.use(cors())
 
-// app.use(bodyParse.urlencoded({
-// 	extended : true
-// }));
+app.use(bodyParse.urlencoded({
+	extended : true
+}));
 
 
 // initialize routes.

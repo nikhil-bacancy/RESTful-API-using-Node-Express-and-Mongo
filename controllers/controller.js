@@ -12,7 +12,7 @@ exports.getBooks = function(req,res,next) {
 
 exports.addNewBook = function(req,res,next) {
 
-	console.log(req.body);
+	// console.log(req.body);
 	Book.create(req.body).then(function (book) {
 			res.send(book);
 	}).catch(next);
