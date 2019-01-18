@@ -12,10 +12,10 @@ exports.getBooks = function(req,res,next) {
 
 exports.addNewBook = function(req,res,next) {
 
-	// console.log(req.body);
-	Book.create(req.body).then(function (book) {
-			res.send(book);
-	}).catch(next);
+	 //console.log(req.body);
+		Book.create(req.body).then(function (book) {
+				res.send(book);
+		}).catch(next);
 
 };
 
@@ -41,7 +41,7 @@ exports.updateBook = function(req,res,next) {
 
 
 exports.removeBook = function(req,res,next) {
-
+		//console.log(req.params);
 	Book.deleteOne({"name" : req.params.name}).then(function (result) {
 		res.send(result);
 	}).catch(next);

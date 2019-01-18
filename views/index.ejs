@@ -37,7 +37,7 @@
     <div class="row">
         <center><h4>Book Availability</h4></center>
         <div class="input-group">
-          <input type="radio" name="isAvailable" value="male" id="isAvailable-yes" checked/>
+          <input type="radio" name="isAvailable" value="male" id="isAvailable-yes"/>
           <label for="isAvailable-yes">Yes</label>
           <input type="radio" name="isAvailable" value="female" id="isAvailable-no"/>
           <label for="isAvailable-no">No</label>
@@ -59,7 +59,7 @@
       <div class="col-half">
         <div class="input-group">
           <div class="col-half">
-            <input type="button" class="input-group button" value="DELETE" />
+            <input type="button" class="input-group button" id="btnRemoveBooks" value="DELETE" />
           </div>
           <div class="col-half">
             <input type="button" class="input-group button" id="btnGetBooks" value="SELECT" />
@@ -73,6 +73,7 @@
       <div>
           <ul id="result"></ul>
       </div>
+      <div id="result-status"></div>
     </div>
   </form>
 </div>

@@ -11,21 +11,19 @@ $(document).ready(function() {
 			  url: "http://localhost:8080/books/list",
 			  data: {bookprice : parseInt($("#txtBookPrice").val())},
 			  success: function(data, status){
-				  const output = document.getElementById('result');
 
-				  output.innerHTML = data.map(product => {
+				  $('#result').html(data.map(product => {
 				    return `<li data-id="${ product._id }">
 							      <span>${ product.name }</span>
 							      <span>${ product.price }</span>
 					  			  </li>`;
-					}).join('');
+					}).join(''));
 
   			},
   			error: function () {
 	     	   	alert("error");
     		}
 			})
-
 	});
 
 
@@ -42,10 +40,10 @@ $(document).ready(function() {
 			  				name : $("#txtBookName").val(),
 			  				price : parseInt($("#txtBookPrice").val()),
 			  				qty : parseInt($("#txtBookQty").val()),
-			  				isavailable : ($("#isAvailable-yes").val()) ?  true : false ;
+			  				isavailable : ($("#isAvailable-yes").prop("checked")) ?  true : false
 			  			},
 			  success: function(data, status){
-				  alert("Data: " + data + "\nStatus: " + status);
+				  		$("#result-status").html("One New Book Has Been Added To The Store : " + status + "fully");
   			},
   			error: function () {
 	     	   	alert("error");
@@ -53,6 +51,28 @@ $(document).ready(function() {
 			})
 
 	});
+
+
+	$('#btnRemoveBooks').click(function() {
+
+			var bookname = $("#txtBookName").val();
+			$.ajax({
+				type: "DELETE",
+				dataType: "json",
+				headers: {
+        	'Content-Type': 'application/json',
+    		},
+			  data: {},
+			  url: "http://localhost:8080/books/book/"+bookname,
+			  success: function(data, status){
+			  		$("#result-status").html("Book Has Been Deleted From The Store : " + status + "fully");
+  			},
+  			error: function () {
+	     	   	alert("error");
+    		}
+			})
+	});
+
 
 });
 
