@@ -28,7 +28,7 @@ app.use("/styles",express.static(__dirname + "/views/css"));
 app.use("/js",express.static(__dirname + "/views/js"));
 
 
-app.use(bodyParse.json());
+// app.use(bodyParse.json());
 
 app.use(cors())
 

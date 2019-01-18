@@ -15,7 +15,6 @@ const BookSchema = new Schema({
 	},
 	qty : {
 		type:Number,
-
 	},
 	isavailable : {
 		type : Boolean,

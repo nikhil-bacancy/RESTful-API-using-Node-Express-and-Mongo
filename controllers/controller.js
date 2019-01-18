@@ -21,22 +21,17 @@ exports.addNewBook = function(req,res,next) {
 
 
 exports.updateBook = function(req,res,next) {
+	// console.log(req.params);
+	// console.log(req.body);
 
 	Book.findOneAndUpdate(
 		{ name : req.params.name },
-		{ $inc: { price : req.body.price } },
+		{ $inc: { price : req.body.price }, $set: { isavailable: req.body.isavailable, qty: req.body.qty  } },
 		{ upsert: true , new : true, rawResult : true }
 	).then(function (result) {
 			res.send(result.value);
 	}).catch(next);
 
-	// Book.updateOne(
-	// 	{ name : req.params.name },
- //    { $inc: { price : req.body.price } },
- //    { upsert: true }
-	// ).then(function (result) {
-	// 		res.send(result);
-	// }).catch(next);
 };
 
 

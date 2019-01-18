@@ -6,7 +6,7 @@ $(document).ready(function() {
 				type: "GET",
 				dataType: "json",
 				headers: {
-        	'Content-Type': 'application/json',
+        	'Content-Type': 'application/x-www-form-urlencoded',
     		},
 			  url: "http://localhost:8080/books/list",
 			  data: {bookprice : parseInt($("#txtBookPrice").val())},
@@ -60,7 +60,7 @@ $(document).ready(function() {
 				type: "DELETE",
 				dataType: "json",
 				headers: {
-        	'Content-Type': 'application/json',
+        	'Content-Type': 'application/x-www-form-urlencoded',
     		},
 			  data: {},
 			  url: "http://localhost:8080/books/book/"+bookname,
@@ -71,6 +71,32 @@ $(document).ready(function() {
 	     	   	alert("error");
     		}
 			})
+	});
+
+
+	$('#btnUpdateBooks').click(function() {
+
+			var bookname = $("#txtBookName").val();
+			$.ajax({
+				type: "PUT",
+				dataType: "json",
+				headers: {
+        	'Content-Type': 'application/x-www-form-urlencoded',
+    		},
+			   url: "http://localhost:8080/books/book/"+bookname,
+			  data: {
+			  				price : parseInt($("#txtBookPrice").val()),
+			  				qty : parseInt($("#txtBookQty").val()),
+			  				isavailable : ($("#isAvailable-yes").prop("checked")) ?  true : false
+			  			},
+			  success: function(data, status){
+				  		$("#result-status").html("One Book Has Been Updated In The Store : " + status + "fully");
+  			},
+  			error: function () {
+	     	   	alert("error");
+    		}
+			})
+
 	});
 
 
