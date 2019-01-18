@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='/styles/style.css' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript"  src="/js/main.js"></script>
+
+</head>
+
+<body>
+
+
+<div class="container">
+  <form>
+    <div class="row">
+      <center><h4>Book Details</h4></center>
+      <hr/>
+      <div class="input-group input-group-icon">
+        <input type="text" placeholder="Book Name" id="txtBookName" />
+        <div class="input-icon"><i class="fa fa-book"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        <input type="number" id="txtBookPrice"  placeholder="Book Price"/>
+        <div class="input-icon"><i class="fa fa-rupee"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        <input type="number" id="txtBookQty" placeholder="Book Qty"/>
+        <div class="input-icon"><i class="fa fa-sort-amount-asc"></i></div>
+      </div>
+    </div>
+
+    <div class="row">
+        <center><h4>Book Availability</h4></center>
+        <div class="input-group">
+          <input type="radio" name="isAvailable" value="male" id="isAvailable-yes" checked/>
+          <label for="isAvailable-yes">Yes</label>
+          <input type="radio" name="isAvailable" value="female" id="isAvailable-no"/>
+          <label for="isAvailable-no">No</label>
+        </div>
+    </div>
+
+    <div class="row">
+      <center><h4>CURD OPERATIONS</h4></center>
+      <div class="col-half">
+        <div class="input-group">
+          <div class="col-half">
+            <input type="button" class="input-group button" id="btnAddBook" value="ADD" />
+          </div>
+          <div class="col-half">
+            <input type="button" class="input-group button" value="UPDATE" />
+          </div>
+        </div>
+      </div>
+      <div class="col-half">
+        <div class="input-group">
+          <div class="col-half">
+            <input type="button" class="input-group button" value="DELETE" />
+          </div>
+          <div class="col-half">
+            <input type="button" class="input-group button" id="btnGetBooks" value="SELECT" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <center><h4>Result</h4></center>
+      <div>
+          <ul id="result"></ul>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+
+</html>

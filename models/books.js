@@ -7,21 +7,20 @@ const Schema = mongoose.Schema;
 const BookSchema = new Schema({
 	name : {
 		type:String,
-		required:[true,'Book Name Is Required']
+		//required:[true,'Book Name Is Required']
 	},
 	price : {
 		type:Number,
-		required:[true,'Book Price Is Required']
-	}
-	// ,
-	// qty : {
-	// 	type:Number,
+		//required:[true,'Book Price Is Required']
+	},
+	qty : {
+		type:Number,
 
-	// },
-	// isavailable : {
-	// 	type : Boolean,
-	// 	default : false
-	// }
+	},
+	isavailable : {
+		type : Boolean,
+		default : false
+	}
 });
 
 
