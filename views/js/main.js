@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+	function clearAll() {
+		$("#txtBookName").val("");
+		$("#txtBookPrice").val("");
+		$("#txtBookQty").val("");
+	}
+
+
 	$('#btnGetBooks').click(function() {
 
 			$.ajax({
@@ -18,6 +25,8 @@ $(document).ready(function() {
 							      <span>${ product.price }</span>
 					  			  </li>`;
 					}).join(''));
+
+				  clearAll();
 
   			},
   			error: function () {
@@ -44,6 +53,7 @@ $(document).ready(function() {
 			  			},
 			  success: function(data, status){
 				  		$("#result-status").html("One New Book Has Been Added To The Store : " + status + "fully");
+				  		clearAll();
   			},
   			error: function () {
 	     	   	alert("error");
@@ -66,6 +76,7 @@ $(document).ready(function() {
 			  url: "http://localhost:8080/books/book/"+bookname,
 			  success: function(data, status){
 			  		$("#result-status").html("Book Has Been Deleted From The Store : " + status + "fully");
+			  		clearAll();
   			},
   			error: function () {
 	     	   	alert("error");
@@ -91,6 +102,7 @@ $(document).ready(function() {
 			  			},
 			  success: function(data, status){
 				  		$("#result-status").html("One Book Has Been Updated In The Store : " + status + "fully");
+				  		clearAll();
   			},
   			error: function () {
 	     	   	alert("error");
@@ -98,35 +110,4 @@ $(document).ready(function() {
 			})
 
 	});
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-// const invocation = new XMLHttpRequest();
-			// const url = "http://localhost:8080/books/list";
-			// const data = {'price' : 400};
-
-
-			//   if(invocation)
-			//   {
-			//     invocation.open('GET', url, true);
-			//     invocation.setRequestHeader('X-PINGOTHER', 'pingpong');
-			//     invocation.setRequestHeader('Content-Type', 'application/json');
-			//     invocation.onreadystatechange = function() {
-			// 	    if (this.readyState == 4 && this.status == 200) {
-			//        	alert(xhttp.responseText);
-			//       }
-			//     }
-			//     invocation.send(data);
-			//   }
